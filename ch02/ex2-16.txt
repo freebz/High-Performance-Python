@@ -1,0 +1,40 @@
+예제 2-16 dis 모듀롤 스택 기반의 가상 머신의 작동 방식 살펴보기
+
+In [1]: import dis
+In [2]: import julia1_nopil
+
+In [3]: dis.dis(julia_nopil.calculate_z_serial_purepython)
+ 11            0 LOAD_CONST               1 (0)
+               3 BUILD_LIST               1
+	       6 LOAD_GLOBAL              0 (len)
+	       9 LOAD_FAST                1 (zs)
+	      12 CALL_FUNCTION            1
+	      15 BINARY_MULTIPLY
+	      16 STORE_FAST               3 (output)
+
+ 12           19 SETUP_LOOP             123 (to 145)
+              22 LOAD_GLOBAL              1 (range)
+	      25 LOAD_GLOBAL              0 (len)
+	      28 LOAD_FAST                1 (zs)
+	      31 CALL_FUNCTION            1
+	      34 CALL_FUNCTION            1
+	      37 GET_ITER
+	 >>   38 FOR_ITER               103 (to 144)
+	      41 STORE_FAST               4 (i)
+
+ 13           44 LOAD_CONST               1 (0)
+              47 STORE_FAST               5 (n)
+
+# ...
+# 코드의 안쪽 루프는 생략했다!
+# ...
+
+ 19      >>  131 LOAD_FAST                5 (n)
+             134 LOAD_FAST                3 (output)
+	     137 LOAD_FAST                4 (i)
+	     140 STORE_SUBSCR
+	     141 JUMP_ABSOLUTE           38
+	 >>  144 POP_BLOCK
+
+ 20      >>  145 LOAD_FAST                3 (output)
+             148 RETURN_VALUE
