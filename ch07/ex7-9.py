@@ -1,0 +1,13 @@
+# 예제 7-9 외부 모듈을 임포트해서 Shed Skin이 그 모듈만을 컴파일하도록 만들기
+
+...
+import shedskinfn
+...
+def calc_pure_python(desired_width, max_iterations):
+    #...
+    start_time = time.time()
+    output = shedskinfn.calculate_z(max_iterations, zs, cs)
+    end_time = time.time()
+    secs = end_time - start_time
+    print("Took {} seconds".format(secs))
+...

@@ -1,0 +1,13 @@
+# 예제 7-2 새롭게 컴파일된 모듈을 메인 코드에 임포트하기
+
+...
+import calculate # as defined in setup.py setup.py에 정의
+...
+def calc_pure_python(desired_width, max_iterations):
+#...
+    start_time = time.time()
+    output = calculate.calculate_z(max_iterations, zs, cs)
+    end_time = time.time()
+    secs = end_time - start_time
+    print("Took {} seconds".format(secs))
+...
