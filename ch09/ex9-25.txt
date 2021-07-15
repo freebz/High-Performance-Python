@@ -1,0 +1,16 @@
+예제 9-25 공유한 배열에 대해 작업자(worker_fn) 실행하기
+
+worker_fn: with idx 0
+id of shared_array is 2025664 in PID 11288
+worker_fn: with idx 2000
+id of shared_array is 2025664 in PID 11291
+worker_fn: with idx 1000
+id of shared_array is 2025664 in PID 11289
+...
+worker_fn: with idx 8000
+id of shared_array is 2025664 in PID 11290
+
+The default value has been over-written with worker_fn's result:
+[[ 11288. 11288. 11288. ..., 11288, 11288. 11288.]
+ ...,
+ [ 11291. 11291. 11291. ..., 11291. 11291. 11291.]]
